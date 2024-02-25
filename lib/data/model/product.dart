@@ -1,3 +1,5 @@
+import 'package:apple_shop/constants/string_constatns.dart';
+
 class Product {
   String? category;
   String? id;
@@ -37,7 +39,7 @@ class Product {
       jsonMapObject["popularity"],
       jsonMapObject["price"],
       jsonMapObject["quantity"],
-      "https://startflutter.ir/api/files/${jsonMapObject["collectionId"]}/${jsonMapObject["id"]}/${jsonMapObject["thumbnail"]}",
+      "${StringConstants.baseURL}/files/${jsonMapObject["collectionId"]}/${jsonMapObject["id"]}/${jsonMapObject["thumbnail"]}",
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:apple_shop/constants/string_constatns.dart';
 import 'package:apple_shop/util/auth_manager.dart';
 import 'package:dio/dio.dart';
 
@@ -5,7 +6,7 @@ class DioHandler {
   static Dio dioWithHeader() {
     Dio dio = Dio(
       BaseOptions(
-        baseUrl: "https://startflutter.ir/api/",
+        baseUrl: StringConstants.baseURL,
         headers: {
           "Content-Type": "application-json",
           "Authorization": "Bearer ${AuthManager.readToken()}",
@@ -19,7 +20,7 @@ class DioHandler {
   static Dio dioWithoutHeader() {
     Dio dio = Dio(
       BaseOptions(
-        baseUrl: "https://startflutter.ir/api/",
+        baseUrl: StringConstants.baseURL,
       ),
     );
 

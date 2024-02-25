@@ -1,3 +1,5 @@
+import 'package:apple_shop/constants/string_constatns.dart';
+
 class GalleryImages {
   String? id;
   String? collectionId;
@@ -11,7 +13,7 @@ class GalleryImages {
       jsonMapObject["id"],
       jsonMapObject["collectionId"],
       jsonMapObject["product_id"],
-      "https://startflutter.ir/api/files/${jsonMapObject["collectionId"]}/${jsonMapObject["id"]}/${jsonMapObject["image"]}",
+      "${StringConstants.baseURL}/files/${jsonMapObject["collectionId"]}/${jsonMapObject["id"]}/${jsonMapObject["image"]}",
     );
   }
 }

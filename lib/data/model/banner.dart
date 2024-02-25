@@ -1,3 +1,5 @@
+import 'package:apple_shop/constants/string_constatns.dart';
+
 class BannerModel {
   String? collectionId;
   String? id;
@@ -11,7 +13,7 @@ class BannerModel {
       jsonMapObject["collectionId"],
       jsonMapObject["id"],
       jsonMapObject["categoryId"],
-      "https://startflutter.ir/api/files/${jsonMapObject["collectionId"]}/${jsonMapObject["id"]}/${jsonMapObject["thumbnail"]}",
+      "${StringConstants.baseURL}/files/${jsonMapObject["collectionId"]}/${jsonMapObject["id"]}/${jsonMapObject["thumbnail"]}",
     );
   }
 }

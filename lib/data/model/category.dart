@@ -1,3 +1,5 @@
+import 'package:apple_shop/constants/string_constatns.dart';
+
 class Category {
   String? id;
   String? collectionId;
@@ -14,9 +16,9 @@ class Category {
       jsonMapObject["id"],
       jsonMapObject["collectionId"],
       jsonMapObject["color"],
-      "https://startflutter.ir/api/files/${jsonMapObject["collectionId"]}/${jsonMapObject["id"]}/${jsonMapObject["thumbnail"]}",
+      "${StringConstants.baseURL}/files/${jsonMapObject["collectionId"]}/${jsonMapObject["id"]}/${jsonMapObject["thumbnail"]}",
       jsonMapObject["title"],
-      "https://startflutter.ir/api/files/${jsonMapObject["collectionId"]}/${jsonMapObject["id"]}/${jsonMapObject["icon"]}",
+      "${StringConstants.baseURL}/files/${jsonMapObject["collectionId"]}/${jsonMapObject["id"]}/${jsonMapObject["icon"]}",
     );
   }
 }
