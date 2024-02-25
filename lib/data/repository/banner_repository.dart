@@ -1,4 +1,3 @@
-import 'package:apple_shop/DI/service_locator.dart';
 import 'package:apple_shop/data/datasource/banner_datasource.dart';
 import 'package:apple_shop/data/model/banner.dart';
 import 'package:apple_shop/util/api_exception.dart';
@@ -9,7 +8,8 @@ abstract class IBannerRepository {
 }
 
 class BannerRemoteRpository extends IBannerRepository {
-  final IBannerDatasource _datasource = locator.get();
+  final IBannerDatasource _datasource;
+  BannerRemoteRpository(this._datasource);
   @override
   Future<Either<String, List<BannerModel>>> getBanners() async {
     try {

@@ -15,6 +15,7 @@ import 'package:apple_shop/data/repository/category_repository.dart';
 import 'package:apple_shop/data/repository/comments_repository.dart';
 import 'package:apple_shop/data/repository/product_detail_repository.dart';
 import 'package:apple_shop/data/repository/product_repository.dart';
+import 'package:apple_shop/util/auth_manager.dart';
 import 'package:apple_shop/util/dio_handler.dart';
 import 'package:apple_shop/util/payment_handler.dart';
 import 'package:apple_shop/util/url_handler.dart';
@@ -48,31 +49,40 @@ Future<void> getComponents() async {
 }
 
 void getDatasources() {
-  locator.registerSingleton<ICategoryDataSource>(CategoryRemoteDataSource());
-  locator.registerSingleton<IBannerDatasource>(BannerRemoteDataSource());
-  locator.registerSingleton<IProductDatasource>(ProductRemoteDatasource());
+  locator.registerSingleton<ICategoryDataSource>(
+      CategoryRemoteDataSource(locator.get()));
+  locator.registerSingleton<IBannerDatasource>(
+      BannerRemoteDataSource(locator.get()));
+  locator.registerSingleton<IProductDatasource>(
+      ProductRemoteDatasource(locator.get()));
   locator.registerSingleton<IProductDetailDatasource>(
-      ProductDetailRemoteDatasource());
+      ProductDetailRemoteDatasource(locator.get()));
   locator.registerSingleton<ICategroyProductDatasource>(
-      CategoryProductRemoteDatasource());
+      CategoryProductRemoteDatasource(locator.get()));
   locator.registerSingleton<IBasketDatasource>(BasketDatabase());
   locator
       .registerSingleton<IAuthenticationDatasource>(AuthenticationDatasource());
-  locator.registerSingleton<ICommentDatasource>(CommentsRemoteDatasource());
+  locator.registerSingleton<ICommentDatasource>(
+      CommentsRemoteDatasource(locator.get(), AuthManager.readId()));
 }
 
 void getRepositores() {
-  locator.registerSingleton<ICategoryRepository>(CategoryRemoteRepository());
-  locator.registerSingleton<IBannerRepository>(BannerRemoteRpository());
-  locator.registerSingleton<IProductRepository>(ProductRemoteRepository());
+  locator.registerSingleton<ICategoryRepository>(
+      CategoryRemoteRepository(locator.get()));
+  locator.registerSingleton<IBannerRepository>(
+      BannerRemoteRpository(locator.get()));
+  locator.registerSingleton<IProductRepository>(
+      ProductRemoteRepository(locator.get()));
   locator.registerSingleton<IProductDetailRepository>(
-      ProductDetailRemoteRepository());
+      ProductDetailRemoteRepository(locator.get()));
   locator.registerSingleton<ICategoryProductRepository>(
-      CategoryProductRemoteRepository());
-  locator.registerSingleton<IBasketRepository>(BasketDatabaseRepository());
-  locator
-      .registerSingleton<IAuthenticationRepository>(AuthenticationRepository());
-  locator.registerSingleton<ICommentRepository>(CommentsRemoteRepository());
+      CategoryProductRemoteRepository(locator.get()));
+  locator.registerSingleton<IBasketRepository>(
+      BasketDatabaseRepository(locator.get()));
+  locator.registerSingleton<IAuthenticationRepository>(
+      AuthenticationRepository(locator.get()));
+  locator.registerSingleton<ICommentRepository>(
+      CommentsRemoteRepository(locator.get()));
 }
 
 void getBlocs() {

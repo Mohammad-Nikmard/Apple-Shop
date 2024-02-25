@@ -1,4 +1,3 @@
-import 'package:apple_shop/DI/service_locator.dart';
 import 'package:apple_shop/data/model/category.dart';
 import 'package:apple_shop/data/model/gallery.dart';
 import 'package:apple_shop/data/model/product_properties.dart';
@@ -18,7 +17,8 @@ abstract class IProductDetailDatasource {
 }
 
 class ProductDetailRemoteDatasource extends IProductDetailDatasource {
-  final Dio _dio = locator.get();
+  final Dio _dio;
+  ProductDetailRemoteDatasource(this._dio);
   @override
   Future<List<GalleryImages>> getImages(String productId) async {
     Map<String, String> qparams = {

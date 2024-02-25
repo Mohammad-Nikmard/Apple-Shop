@@ -1,4 +1,3 @@
-import 'package:apple_shop/DI/service_locator.dart';
 import 'package:apple_shop/data/model/product.dart';
 import 'package:apple_shop/util/api_exception.dart';
 import 'package:dio/dio.dart';
@@ -8,7 +7,9 @@ abstract class ICategroyProductDatasource {
 }
 
 class CategoryProductRemoteDatasource extends ICategroyProductDatasource {
-  final Dio _dio = locator.get();
+  final Dio _dio;
+
+  CategoryProductRemoteDatasource(this._dio);
   @override
   Future<List<Product>> getProducts(String productId) async {
     try {

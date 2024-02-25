@@ -1,7 +1,5 @@
-import 'package:apple_shop/DI/service_locator.dart';
 import 'package:apple_shop/data/model/comments.dart';
 import 'package:apple_shop/util/api_exception.dart';
-import 'package:apple_shop/util/auth_manager.dart';
 import 'package:dio/dio.dart';
 
 abstract class ICommentDatasource {
@@ -10,8 +8,10 @@ abstract class ICommentDatasource {
 }
 
 class CommentsRemoteDatasource extends ICommentDatasource {
-  final Dio _dio = locator.get();
-  String? userId = AuthManager.readId();
+  final Dio _dio;
+  String? userId;
+
+  CommentsRemoteDatasource(this._dio, this.userId);
   @override
   Future<List<Comments>> getComments(String productId) async {
     Map<String, dynamic> qparams = {

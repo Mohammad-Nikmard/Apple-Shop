@@ -1,4 +1,3 @@
-import 'package:apple_shop/DI/service_locator.dart';
 import 'package:apple_shop/data/datasource/comment_datasource.dart';
 import 'package:apple_shop/data/model/comments.dart';
 import 'package:apple_shop/util/api_exception.dart';
@@ -10,7 +9,9 @@ abstract class ICommentRepository {
 }
 
 class CommentsRemoteRepository extends ICommentRepository {
-  final ICommentDatasource _datasource = locator.get();
+  final ICommentDatasource _datasource;
+
+  CommentsRemoteRepository(this._datasource);
 
   @override
   Future<Either<String, List<Comments>>> getComments(String productId) async {

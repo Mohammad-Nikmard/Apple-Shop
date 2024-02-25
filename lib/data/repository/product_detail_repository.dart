@@ -1,4 +1,3 @@
-import 'package:apple_shop/DI/service_locator.dart';
 import 'package:apple_shop/data/datasource/product_detail_datasource.dart';
 import 'package:apple_shop/data/model/category.dart';
 import 'package:apple_shop/data/model/gallery.dart';
@@ -17,7 +16,8 @@ abstract class IProductDetailRepository {
 }
 
 class ProductDetailRemoteRepository extends IProductDetailRepository {
-  final IProductDetailDatasource _datasource = locator.get();
+  final IProductDetailDatasource _datasource;
+  ProductDetailRemoteRepository(this._datasource);
   @override
   Future<Either<String, List<GalleryImages>>> getImages(
       String productId) async {

@@ -1,4 +1,3 @@
-import 'package:apple_shop/DI/service_locator.dart';
 import 'package:apple_shop/data/datasource/authentication_datasource.dart';
 import 'package:apple_shop/util/api_exception.dart';
 import 'package:dartz/dartz.dart';
@@ -11,7 +10,9 @@ abstract class IAuthenticationRepository {
 }
 
 class AuthenticationRepository extends IAuthenticationRepository {
-  final IAuthenticationDatasource _datasource = locator.get();
+  final IAuthenticationDatasource _datasource;
+
+  AuthenticationRepository(this._datasource);
   @override
   Future<Either<String, String>> register(
       String username, String password, String passwordConfirm) async {

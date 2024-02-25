@@ -1,4 +1,3 @@
-import 'package:apple_shop/DI/service_locator.dart';
 import 'package:apple_shop/data/datasource/cateogry_datasource.dart';
 import 'package:apple_shop/data/model/category.dart';
 import 'package:apple_shop/util/api_exception.dart';
@@ -9,7 +8,8 @@ abstract class ICategoryRepository {
 }
 
 class CategoryRemoteRepository extends ICategoryRepository {
-  final ICategoryDataSource _dataSource = locator.get();
+  final ICategoryDataSource _dataSource;
+  CategoryRemoteRepository(this._dataSource);
   @override
   Future<Either<String, List<Category>>> geteCategories() async {
     try {

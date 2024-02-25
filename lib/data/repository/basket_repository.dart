@@ -1,4 +1,3 @@
-import 'package:apple_shop/DI/service_locator.dart';
 import 'package:apple_shop/data/datasource/basket_datasource.dart';
 import 'package:apple_shop/data/model/basket_card.dart';
 
@@ -10,7 +9,9 @@ abstract class IBasketRepository {
 }
 
 class BasketDatabaseRepository extends IBasketRepository {
-  final IBasketDatasource _datasource = locator.get();
+  final IBasketDatasource _datasource;
+
+  BasketDatabaseRepository(this._datasource);
   @override
   Future<void> addItem(BasketCard card) async {
     await _datasource.addItem(card);
