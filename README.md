@@ -1,16 +1,5 @@
-# apple_shop
+# Apple Shop
+![mokcup](assets/mockup.png)
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Overview 
+This is an enormous online shop project designed for apple products. It fetches data from API and lists all different types of categories, Products and more. Each product has a detail screen to show the product's all specifications, Comments, Gallery, Description and price. Each of these products could be added to shopping cart and Hive database is responsible for storing all the user's prefrences. User can also log in or sign up to his/her account and will be able to comment by his/her specific id.
