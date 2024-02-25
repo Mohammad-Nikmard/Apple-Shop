@@ -197,11 +197,11 @@ class MainBody extends StatelessWidget {
                                         height: 26,
                                         width: 26,
                                         decoration: const BoxDecoration(
-                                          color: Colors.yellow,
                                           borderRadius: BorderRadius.all(
                                             Radius.circular(8),
                                           ),
                                         ),
+                                        child: Image.asset('images/user.png'),
                                       ),
                                     ),
                                     Padding(
@@ -210,11 +210,11 @@ class MainBody extends StatelessWidget {
                                         height: 26,
                                         width: 26,
                                         decoration: const BoxDecoration(
-                                          color: Colors.blue,
                                           borderRadius: BorderRadius.all(
                                             Radius.circular(8),
                                           ),
                                         ),
+                                        child: Image.asset('images/user.png'),
                                       ),
                                     ),
                                     Padding(
@@ -223,11 +223,11 @@ class MainBody extends StatelessWidget {
                                         height: 26,
                                         width: 26,
                                         decoration: const BoxDecoration(
-                                          color: Colors.black,
                                           borderRadius: BorderRadius.all(
                                             Radius.circular(8),
                                           ),
                                         ),
+                                        child: Image.asset('images/user.png'),
                                       ),
                                     ),
                                     Padding(
@@ -236,11 +236,11 @@ class MainBody extends StatelessWidget {
                                         height: 26,
                                         width: 26,
                                         decoration: const BoxDecoration(
-                                          color: Colors.red,
                                           borderRadius: BorderRadius.all(
                                             Radius.circular(8),
                                           ),
                                         ),
+                                        child: Image.asset('images/user.png'),
                                       ),
                                     ),
                                     Container(
@@ -1258,7 +1258,7 @@ class _GalleryWidgetState extends State<GalleryWidget> {
                         child: SizedBox(
                           height: 70,
                           child: ListView.builder(
-                            itemCount: widget.images?.length ?? 0,
+                            itemCount: widget.images?.length ?? 1,
                             scrollDirection: Axis.horizontal,
                             itemBuilder: (context, index) {
                               return GestureDetector(
@@ -1286,8 +1286,8 @@ class _GalleryWidgetState extends State<GalleryWidget> {
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: CachedImage(
-                                      imageURL:
-                                          widget.images?[index].image ?? "",
+                                      imageURL: widget.images?[index].image ??
+                                          widget.productThumbnail,
                                     ),
                                   ),
                                 ),

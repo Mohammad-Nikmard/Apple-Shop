@@ -7,8 +7,13 @@ class Comments {
   String? userAvatar;
   String? name;
 
-  Comments(this.collectionId, this.id, this.productId, this.text, this.userId,
-      this.userAvatar, this.name);
+  Comments(
+    this.collectionId,
+    this.id,
+    this.productId,
+    this.text,
+    this.userId,
+  );
 
   factory Comments.withJson(Map<String, dynamic> jsonMapObject) {
     return Comments(
@@ -17,8 +22,8 @@ class Comments {
       jsonMapObject["product_id"],
       jsonMapObject["text"],
       jsonMapObject["user_id"],
-      "https://startflutter.ir/api/files/${jsonMapObject["expand"]["user_id"]["collectionId"]}/${jsonMapObject["expand"]["user_id"]["id"]}/${jsonMapObject["expand"]["user_id"]["avatar"]}",
-      jsonMapObject["expand"]["user_id"]["name"],
+
+      // "https://startflutter.ir/api/files/${jsonMapObject["expand"]["user_id"]["collectionId"]}/${jsonMapObject["expand"]["user_id"]["id"]}/${jsonMapObject["expand"]["user_id"]["avatar"]}",
     );
   }
 }
