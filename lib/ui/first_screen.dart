@@ -142,6 +142,7 @@ class FirstScreen extends StatelessWidget {
                         style: TextStyle(
                           fontFamily: "SB",
                           fontSize: 20,
+                          color: Colors.white,
                         ),
                       ),
                     ),

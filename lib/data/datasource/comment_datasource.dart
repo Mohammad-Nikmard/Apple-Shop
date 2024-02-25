@@ -15,8 +15,8 @@ class CommentsRemoteDatasource extends ICommentDatasource {
   @override
   Future<List<Comments>> getComments(String productId) async {
     Map<String, dynamic> qparams = {
-      'filter': 'product_id = "$productId"',
-      'perPage': 50,
+      'filter': 'product_id="$productId"',
+      'perPage': 100,
       'expand': 'user_id',
     };
     try {

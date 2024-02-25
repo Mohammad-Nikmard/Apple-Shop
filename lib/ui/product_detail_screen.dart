@@ -11,6 +11,7 @@ import 'package:apple_shop/DI/service_locator.dart';
 import 'package:apple_shop/constants/colors.dart';
 import 'package:apple_shop/data/model/gallery.dart';
 import 'package:apple_shop/data/model/product.dart';
+import 'package:apple_shop/data/model/product_properties.dart';
 import 'package:apple_shop/data/model/product_variant.dart';
 import 'package:apple_shop/data/model/variant_type.dart';
 import 'package:apple_shop/data/model/variants.dart';
@@ -106,7 +107,18 @@ class MainBody extends StatelessWidget {
                           productVaraintList: productVariantList);
                     },
                   ),
-                  const TechnicalSpesification(),
+                  state.getProperties.fold(
+                    (l) {
+                      return const SliverToBoxAdapter(
+                        child: Center(
+                          child: Text(""),
+                        ),
+                      );
+                    },
+                    (propertyList) {
+                      return TechnicalSpesification(propertyList: propertyList);
+                    },
+                  ),
                   Description(
                     description: widget.productItem.description,
                   ),
@@ -575,8 +587,10 @@ class CommentsSection extends StatelessWidget {
             }
             if (state is CommentsResponseState) {
               return state.getComments.fold(
-                (l) {
-                  return Text(l);
+                (exceptionMessage) {
+                  return const Center(
+                    child: Text("خطا"),
+                  );
                 },
                 (commentList) {
                   return Column(
@@ -638,6 +652,7 @@ class CommentsSection extends StatelessWidget {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Text(
+                                                  // commentList[index].name ??
                                                   "کاربر",
                                                   style: Theme.of(context)
                                                       .textTheme
@@ -854,7 +869,8 @@ class _DescriptionState extends State<Description> {
 }
 
 class TechnicalSpesification extends StatefulWidget {
-  const TechnicalSpesification({super.key});
+  const TechnicalSpesification({super.key, required this.propertyList});
+  final List<ProductProperties> propertyList;
 
   @override
   State<TechnicalSpesification> createState() => _TechnicalSpesificationState();
@@ -923,7 +939,6 @@ class _TechnicalSpesificationState extends State<TechnicalSpesification> {
             child: Visibility(
               visible: isTapped,
               child: Container(
-                height: 50,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -933,6 +948,23 @@ class _TechnicalSpesificationState extends State<TechnicalSpesification> {
                   ),
                   borderRadius: const BorderRadius.all(
                     Radius.circular(15),
+                  ),
+                ),
+                child: SizedBox(
+                  height: 50,
+                  child: ListView.builder(
+                    itemCount: widget.propertyList.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.only(
+                            left: 10, right: 10, top: 10, bottom: 10),
+                        child: Text(
+                          "${widget.propertyList[index].title} : ${widget.propertyList[index].value}",
+                          style: Theme.of(context).textTheme.bodyMedium,
+                          textDirection: TextDirection.rtl,
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),
