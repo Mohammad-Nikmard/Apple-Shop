@@ -22,4 +22,28 @@ The project follows bloc architecture for the separation of layers to keep every
    - Repositoy : To get data from datasource and handle whether an error occurred or the list has been taken (similar to adapter layer).
  - UI : Infrastructure layer that is aware of the bloc and can send certain events to it.
 
-   
+## Depandancies 
+  - loading_indicator (loading animation)
+  - dotted_line 
+  - just_the_tooltip 
+  - intl
+  - lottie (for animations)
+  - cached_network_image (to store all the pictures)
+  - smooth_page_indicator
+  - zarinpal
+  - uni_links
+  - url_launcher
+  - get_it
+  - shared_preferences
+  - bloc
+  - flutter_bloc
+  - dartz
+  - dio
+
+  
+## Project Setup
+To run the application do the following :
+
+ 1. Clone the repository or download it.
+ 2. Open the project in Android Studio / VScode.
+ 3. Build and run the app on an Android emulator or physical device by your choice.
