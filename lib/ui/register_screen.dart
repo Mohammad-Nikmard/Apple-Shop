@@ -334,9 +334,9 @@ class MainBody extends StatelessWidget {
                           onPressed: () {
                             context.read<AuthenticationBloc>().add(
                                   AuthenticationRegisterEvent(
-                                    _usernameController.text,
-                                    _passwordController.text,
-                                    _passwordConfirmController.text,
+                                    _usernameController.text.trim(),
+                                    _passwordController.text.trim(),
+                                    _passwordConfirmController.text.trim(),
                                   ),
                                 );
                           },
@@ -370,9 +370,10 @@ class MainBody extends StatelessWidget {
                               onPressed: () {
                                 context.read<AuthenticationBloc>().add(
                                       AuthenticationRegisterEvent(
-                                          _usernameController.text,
-                                          _passwordController.text,
-                                          _passwordConfirmController.text),
+                                        _usernameController.text.trim(),
+                                        _passwordController.text.trim(),
+                                        _passwordConfirmController.text.trim(),
+                                      ),
                                     );
                               },
                               child: const Text(
@@ -400,9 +401,9 @@ class MainBody extends StatelessWidget {
                               onPressed: () {
                                 context.read<AuthenticationBloc>().add(
                                       AuthenticationRegisterEvent(
-                                        _usernameController.text,
-                                        _passwordController.text,
-                                        _passwordConfirmController.text,
+                                        _usernameController.text.trim(),
+                                        _passwordController.text.trim(),
+                                        _passwordConfirmController.text.trim(),
                                       ),
                                     );
                               },
@@ -418,7 +419,7 @@ class MainBody extends StatelessWidget {
                         },
                       );
                     }
-                    return const Text("Fuckin Hell");
+                    return const Text("Error");
                   },
                   listener: (context, state) {
                     if (state is AuthenticationRegisterResponseState) {

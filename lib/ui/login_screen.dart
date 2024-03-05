@@ -345,8 +345,8 @@ class _MainBodyState extends State<MainBody> {
                             onPressed: () {
                               context.read<AuthenticationBloc>().add(
                                     AuthenticationLoginEvent(
-                                      _usernameController.text,
-                                      _passwordController.text,
+                                      _usernameController.text.trim(),
+                                      _passwordController.text.trim(),
                                     ),
                                   );
                             },
@@ -378,8 +378,8 @@ class _MainBodyState extends State<MainBody> {
                               onPressed: () {
                                 context.read<AuthenticationBloc>().add(
                                       AuthenticationLoginEvent(
-                                        _usernameController.text,
-                                        _passwordController.text,
+                                        _usernameController.text.trim(),
+                                        _passwordController.text.trim(),
                                       ),
                                     );
                               },
@@ -407,8 +407,8 @@ class _MainBodyState extends State<MainBody> {
                                   onPressed: () {
                                     context.read<AuthenticationBloc>().add(
                                           AuthenticationLoginEvent(
-                                            _usernameController.text,
-                                            _passwordController.text,
+                                            _usernameController.text.trim(),
+                                            _passwordController.text.trim(),
                                           ),
                                         );
                                   },
